@@ -10,6 +10,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private int slotCount;
 
     private List<UISlot> slots = new List<UISlot>();
+    private ItemData selectedItem;
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class UIInventory : MonoBehaviour
     {
         for (int i = 0; i < slotCount; i++)
         {
-            Instantiate(slotPrefab, slotParent);
+            UISlot slot = Instantiate(slotPrefab, slotParent);
+            slots.Add(slot);
         }
     }
 }
