@@ -19,4 +19,12 @@ public class UIStatus : MonoBehaviour
     {
         UIManager.Instance.UIMainMenu.OpenMainMenu();
     }
+
+    public void SetStatusInfo(Character Player)
+    {
+        healthText.text = Player.Health.ToString();
+        attackText.text = Player.Attack.ToString();
+        defenseText.text = Player.Defense.ToString();
+        speedText.text = Player.Speed.ToString();
+    }
 }
