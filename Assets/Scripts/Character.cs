@@ -1,4 +1,4 @@
-using UnityEngine;
+using System.Collections.Generic;
 
 public class Character
 {
@@ -10,7 +10,9 @@ public class Character
     public int Defense { get; private set; }
     public int Speed { get; private set; }
 
-    public Character(string id, int level, int gold, int hp, int att, int def, int spd)
+    public List<Item> Inventory { get; private set; }
+
+    public Character(string id, int level, int gold, int hp, int att, int def, int spd, List<Item> inven)
     {
         CharacterID = id;
         Level = level;
@@ -19,5 +21,7 @@ public class Character
         Attack = att;
         Defense = def;
         Speed = spd;
+        Inventory = inven;
+    }
     }
 }
