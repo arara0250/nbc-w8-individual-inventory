@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Button exitButton;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI attackText;
+    [SerializeField] private TextMeshProUGUI defenseText;
+    [SerializeField] private TextMeshProUGUI speedText;
+
     void Start()
     {
-        
+        exitButton.onClick.AddListener(CloseStatus);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CloseStatus()
     {
-        
+        UIManager.Instance.UIMainMenu.OpenMainMenu();
     }
 }
