@@ -256,6 +256,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EquipButton
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 128
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbbc6f3f5531264682171ad29834025
+      internalID: -1489984358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -267,6 +288,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      EquipButton: -1489984358
       ExitButton: -404676632
       ExitButton_pushed: 318455082
       InventoryButton: -933745495
