@@ -25,6 +25,8 @@ public class UIInventory : MonoBehaviour
     void Start()
     {
         exitButton.onClick.AddListener(CloseInventory);
+
+        useButton.onClick.AddListener(OnClickUseButton);
         useButtonText = useButton.GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -44,10 +46,24 @@ public class UIInventory : MonoBehaviour
         }
     }
 
+    public void RefreshInventoryUI(Character Player)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (i < Player.Inventory.Count)
+                slots[i].SetItem(Player.Inventory[i]);
+            else
+                slots[i].SetItem(null);
+        }
+
+        itemNameText.text = "";
+        itemDescText.text = "";
+    }
+
     private void HandleSlotClicked(Item item)
     {
         if (item == null)
-        {             
+        {
             itemNameText.text = "";
             itemDescText.text = "";
             return;
@@ -63,17 +79,37 @@ public class UIInventory : MonoBehaviour
             useButtonText.text = item.IsEquipped ? "해제" : "장착";
     }
 
-    public void RefreshInventoryUI(Character Player)
+    private void OnClickUseButton()
     {
-        for (int i = 0; i < slots.Count; i++)
+        if (selectedItem == null) return;
+
+        Character player = GameManager.Instance.Player;
+
+        // 소비 아이템 사용
+        if (selectedItem.ItemData.type == AbilityType.Health)
         {
-            if (i < Player.Inventory.Count)
-                slots[i].SetItem(Player.Inventory[i]);
-            else
-                slots[i].SetItem(null);
+            player.Heal(selectedItem.ItemData.amount);
+
+            selectedItem.RemoveQuantity();
+
+            if (selectedItem.Quantity <= 0)
+            {
+                player.Inventory.Remove(selectedItem);
+                selectedItem = null;
+            }
         }
 
-        itemNameText.text = "";
-        itemDescText.text = "";
+        // 장비 아이템 장착/해제
+        else
+        {
+            if (selectedItem.IsEquipped)
+                player.UnEquip(selectedItem);
+            else
+                player.Equip(selectedItem);
+        }
+
+        RefreshInventoryUI(player);
+
+        HandleSlotClicked(selectedItem);
     }
 }
