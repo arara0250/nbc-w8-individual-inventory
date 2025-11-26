@@ -14,6 +14,8 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI idText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private Image expBar;
+    [SerializeField] private TextMeshProUGUI expText;
 
     private void Start()
     {
@@ -50,7 +52,14 @@ public class UIMainMenu : MonoBehaviour
     public void SetCharacterInfo(Character Player)
     {
         idText.text = Player.CharacterID;
-        levelText.text = Player.Level.ToString();
         goldText.text = Player.Gold.ToString();
+        SetLevelInfo(Player);
+    }
+
+    public void SetLevelInfo(Character Player)
+    {
+        levelText.text = Player.Level.ToString();
+        expBar.fillAmount = (float)Player.Experience / Player.RequiredExp;
+        expText.text = $"{Player.Experience} / {Player.RequiredExp}";
     }
 }
