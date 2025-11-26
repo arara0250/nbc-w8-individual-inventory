@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Item
 {
     /// <summary>
@@ -12,6 +14,16 @@ public class Item
         ItemData = data;
         Quantity = qty;
         IsEquipped = false;
+    }
+
+    public void AddQuantity(int qty)
+    {
+        Quantity += qty;
+    }
+
+    public void RemoveQuantity(int qty=1)
+    {
+        Quantity = Mathf.Max(0, Quantity - qty);
     }
 
     public void EquipItem()
