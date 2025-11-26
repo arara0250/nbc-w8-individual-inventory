@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a279c879965be17489a7430ede2c6a73, type: 3}
-  m_Name: ItemData_HpPotion
+  m_Name: ItemData_WoodShield
   m_EditorClassIdentifier: 
-  itemName: "HP \uD3EC\uC158"
-  itemDescription: "\uC0DD\uBA85\uB825\uC744 \uC870\uAE08 \uD68C\uBCF5\uD55C\uB2E4."
-  itemIcon: {fileID: 21300000, guid: 84175f4e4fc4b974e9af19a00859a49b, type: 3}
-  canStack: 1
-  type: 0
-  amount: 30
+  itemName: "\uB098\uBB34 \uBC29\uD328"
+  itemDescription: "\uADF8\uB2E5 \uD2BC\uD2BC\uD558\uC9C4 \uC54A\uB2E4."
+  itemIcon: {fileID: 21300000, guid: fc65895615414d54c9b7b7c48076d8cf, type: 3}
+  canStack: 0
+  type: 2
+  amount: 10
