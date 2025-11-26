@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
         List<Item> initInven = new List<Item>() 
         { 
-            new Item(ItemDB.GetItemData("초보자의 검")),
+            new Item(ItemDB.GetItemData("초심자의 검")),
             new Item(ItemDB.GetItemData("HP 포션"), 3)
         };
 
