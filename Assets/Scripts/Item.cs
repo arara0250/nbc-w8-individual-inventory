@@ -21,7 +21,7 @@ public class Item
         Quantity += qty;
     }
 
-    public void RemoveQuantity(int qty=1)
+    private void RemoveQuantity(int qty=1)
     {
         Quantity = Mathf.Max(0, Quantity - qty);
     }
@@ -34,5 +34,24 @@ public class Item
     public void UnEquipItem()
     {
         IsEquipped = false;
+    }
+
+    public void UseConsumable()
+    {
+        if (ItemData.itemType == ItemType.Equipment) return;
+
+        Character player = GameManager.Instance.Player;
+
+        switch (ItemData.consumeType)
+        {
+            case ConsumableType.Health:
+                player.Heal(ItemData.amount);
+                break;
+            case ConsumableType.Experience:
+                player.EarnExp(ItemData.amount);
+                break;
+        }
+
+        RemoveQuantity();
     }
 }

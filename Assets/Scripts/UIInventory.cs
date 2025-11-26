@@ -88,9 +88,7 @@ public class UIInventory : MonoBehaviour
         // 소비 아이템이면, 사용
         if (selectedItem.ItemData.itemType == ItemType.Consumable)
         {
-            player.Heal(selectedItem.ItemData.amount);
-
-            selectedItem.RemoveQuantity();
+            selectedItem.UseConsumable();
 
             if (selectedItem.Quantity <= 0)
             {
