@@ -12,6 +12,8 @@ public class Character
 
     public List<Item> Inventory { get; private set; }
 
+    public List<Item> EquippedItems { get; private set; }
+
     public Character(string id, int level, int gold, int hp, int att, int def, int spd, List<Item> inven)
     {
         CharacterID = id;
@@ -22,6 +24,12 @@ public class Character
         Defense = def;
         Speed = spd;
         Inventory = inven;
+        EquippedItems = new List<Item>();
+    }
+
+    public void Heal(int amount)
+    {
+        Health += amount;
     }
 
     public void AddItem(Item item)
@@ -47,6 +55,7 @@ public class Character
         }
 
         item.EquipItem();
+        EquippedItems.Add(item);
     }
 
     public void UnEquip(Item item)
@@ -67,5 +76,6 @@ public class Character
         }
 
         item.UnEquipItem();
+        EquippedItems.Remove(item);
     }
 }
