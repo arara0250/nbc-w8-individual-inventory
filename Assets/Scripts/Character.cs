@@ -23,5 +23,49 @@ public class Character
         Speed = spd;
         Inventory = inven;
     }
+
+    public void AddItem(Item item)
+    {
+        Inventory.Add(item);
+    }
+
+    public void Equip(Item item)
+    {
+        if (item.ItemData.type == AbilityType.Health) return;
+
+        switch (item.ItemData.type)
+        {
+            case AbilityType.Attack:
+                Attack += item.ItemData.amount;
+                break;
+            case AbilityType.Defense:
+                Defense += item.ItemData.amount;
+                break;
+            case AbilityType.Speed:
+                Speed += item.ItemData.amount;
+                break;
+        }
+
+        item.EquipItem();
+    }
+
+    public void UnEquip(Item item)
+    {
+        if (item.IsEquipped == false) return;
+
+        switch (item.ItemData.type)
+        {
+            case AbilityType.Attack:
+                Attack -= item.ItemData.amount;
+                break;
+            case AbilityType.Defense:
+                Defense -= item.ItemData.amount;
+                break;
+            case AbilityType.Speed:
+                Speed -= item.ItemData.amount;
+                break;
+        }
+
+        item.UnEquipItem();
     }
 }

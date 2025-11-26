@@ -13,4 +13,14 @@ public class Item
         Quantity = qty;
         IsEquipped = false;
     }
+
+    public void EquipItem()
+    {
+        IsEquipped = true;
+    }
+
+    public void UnEquipItem()
+    {
+        IsEquipped = false;
+    }
 }
