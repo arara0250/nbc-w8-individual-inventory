@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
+    [Header("Buttons")]
     [SerializeField] private Button exitButton;
+    [SerializeField] private Button useButton;
+    private TextMeshProUGUI useButtonText;
 
+    [Header("Slot Settings")]
     [SerializeField] private UISlot slotPrefab;
     [SerializeField] private Transform slotParent;
     [SerializeField] private int slotCount;
 
+    [Header("Item Info")]
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemDescText;
 
@@ -20,6 +25,7 @@ public class UIInventory : MonoBehaviour
     void Start()
     {
         exitButton.onClick.AddListener(CloseInventory);
+        useButtonText = useButton.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void CloseInventory()
@@ -50,6 +56,11 @@ public class UIInventory : MonoBehaviour
         selectedItem = item;
         itemNameText.text = item.ItemData.itemName;
         itemDescText.text = item.ItemData.itemDescription;
+
+        if (item.ItemData.type == AbilityType.Health)
+            useButtonText.text = "사용";
+        else
+            useButtonText.text = item.IsEquipped ? "해제" : "장착";
     }
 
     public void RefreshInventoryUI(Character Player)
