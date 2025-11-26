@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a279c879965be17489a7430ede2c6a73, type: 3}
-  m_Name: ItemData_WindShoes
+  m_Name: ItemData_ExpScroll
   m_EditorClassIdentifier: 
-  itemName: "\uBC14\uB78C\uC758 \uC2E0\uBC1C"
-  itemDescription: "\uC2E0\uC73C\uBA74 \uBAB8\uC774 \uAC00\uBCCD\uAC8C \uB290\uAEF4\uC9C4\uB2E4."
-  itemIcon: {fileID: 21300000, guid: b544b3c094e9058499c74233f765fcbf, type: 3}
-  itemType: 1
-  canStack: 0
-  consumeType: 0
-  amount: 0
-  equipType: 3
-  stat: 15
+  itemName: "\uACBD\uD5D8\uCE58 \uC2A4\uD06C\uB864"
+  itemDescription: "\uC0AC\uC6A9\uD558\uBA74 \uACBD\uD5D8\uCE58\uB97C \uC870 \uC5BB\uC744
+    \uC218 \uC788\uB2E4."
+  itemIcon: {fileID: 21300000, guid: b6f8baa92468d5245b678bf1c2a784e8, type: 3}
+  itemType: 0
+  canStack: 1
+  consumeType: 2
+  amount: 10
+  equipType: 0
+  stat: 0

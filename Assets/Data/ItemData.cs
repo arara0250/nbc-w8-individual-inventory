@@ -3,9 +3,23 @@ using UnityEngine;
 /// <summary>
 /// 아이템 정적 데이터 (런타임에 변하지 않는 정보들)
 /// </summary>
-public enum AbilityType
+
+public enum ItemType
 {
+    Consumable,
+    Equipment
+}
+
+public enum ConsumableType
+{
+    None,
     Health,
+    Experience
+}
+
+public enum EquipmentType
+{
+    None,
     Attack,
     Defense,
     Speed
@@ -18,9 +32,16 @@ public class ItemData : ScriptableObject
     public string itemName;
     public string itemDescription;
     public Sprite itemIcon;
-    public bool canStack; 
+     
+    [Header("Item Info")]
+    public ItemType itemType;
+    public bool canStack;
 
-    [Header("Ability Info")]
-    public AbilityType type;
+    [Header("Consumable")]
+    public ConsumableType consumeType;
     public int amount;
+
+    [Header("Equipment")]
+    public EquipmentType equipType;
+    public int stat;
 }
