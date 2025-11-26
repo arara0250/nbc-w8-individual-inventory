@@ -4,6 +4,8 @@ public class Character
 {
     public string CharacterID { get; private set; }
     public int Level { get; private set; }
+    public int Experience { get; private set; }
+    public int RequiredExp { get; private set; }
     public int Gold { get; private set; }
     public int Health { get; private set; }
     public int Attack { get; private set; }
@@ -18,6 +20,8 @@ public class Character
     {
         CharacterID = id;
         Level = level;
+        Experience = 0;
+        RequiredExp = level * 100;
         Gold = gold;
         Health = hp;
         Attack = att;
@@ -27,9 +31,25 @@ public class Character
         EquippedItems = new List<Item>();
     }
 
+    private void LevelUp()
+    {
+        if (Experience < RequiredExp) return;
+
+        Experience -= RequiredExp;
+        Level++;
+        RequiredExp = Level * 100;
+    }
+
     public void Heal(int amount)
     {
         Health += amount;
+    }
+
+    public void EarnExp(int amount)
+    {
+        Experience += amount;
+        LevelUp();
+        UIManager.Instance.UIMainMenu.SetLevelInfo(this);
     }
 
     public void AddItem(Item item)
