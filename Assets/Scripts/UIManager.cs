@@ -16,9 +16,14 @@ public class UIManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        uiInventory.InitInventoryUI();
     }
 }

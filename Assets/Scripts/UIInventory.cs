@@ -15,8 +15,6 @@ public class UIInventory : MonoBehaviour
     void Start()
     {
         exitButton.onClick.AddListener(CloseInventory);
-
-        InitInventoryUI();
     }
 
     private void CloseInventory()
@@ -24,7 +22,7 @@ public class UIInventory : MonoBehaviour
         UIManager.Instance.UIMainMenu.OpenMainMenu();
     }
 
-    void InitInventoryUI()
+    public void InitInventoryUI()
     {
         for (int i = 0; i < slotCount; i++)
         {
