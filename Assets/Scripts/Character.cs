@@ -39,17 +39,17 @@ public class Character
 
     public void Equip(Item item)
     {
-        if (item.ItemData.type == AbilityType.Health) return;
+        if (item.ItemData.itemType == ItemType.Consumable) return;
 
-        switch (item.ItemData.type)
+        switch (item.ItemData.equipType)
         {
-            case AbilityType.Attack:
+            case EquipmentType.Attack:
                 Attack += item.ItemData.amount;
                 break;
-            case AbilityType.Defense:
+            case EquipmentType.Defense:
                 Defense += item.ItemData.amount;
                 break;
-            case AbilityType.Speed:
+            case EquipmentType.Speed:
                 Speed += item.ItemData.amount;
                 break;
         }
@@ -62,15 +62,15 @@ public class Character
     {
         if (item.IsEquipped == false) return;
 
-        switch (item.ItemData.type)
+        switch (item.ItemData.equipType)
         {
-            case AbilityType.Attack:
+            case EquipmentType.Attack:
                 Attack -= item.ItemData.amount;
                 break;
-            case AbilityType.Defense:
+            case EquipmentType.Defense:
                 Defense -= item.ItemData.amount;
                 break;
-            case AbilityType.Speed:
+            case EquipmentType.Speed:
                 Speed -= item.ItemData.amount;
                 break;
         }

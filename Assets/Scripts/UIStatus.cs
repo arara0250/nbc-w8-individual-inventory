@@ -41,15 +41,15 @@ public class UIStatus : MonoBehaviour
 
         foreach (Item item in Player.EquippedItems)
         {
-            switch (item.ItemData.type)
+            switch (item.ItemData.equipType)
             {
-                case AbilityType.Attack:
+                case EquipmentType.Attack:
                     attAddText.text = $"(+{item.ItemData.amount})";
                     break;
-                case AbilityType.Defense:
+                case EquipmentType.Defense:
                     defAddText.text = $"(+{item.ItemData.amount})";
                     break;
-                case AbilityType.Speed:
+                case EquipmentType.Speed:
                     spdAddText.text = $"(+{item.ItemData.amount})";
                     break;
                 default:

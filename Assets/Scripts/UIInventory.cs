@@ -73,7 +73,7 @@ public class UIInventory : MonoBehaviour
         itemNameText.text = item.ItemData.itemName;
         itemDescText.text = item.ItemData.itemDescription;
 
-        if (item.ItemData.type == AbilityType.Health)
+        if (item.ItemData.itemType == ItemType.Consumable)
             useButtonText.text = "사용";
         else
             useButtonText.text = item.IsEquipped ? "해제" : "장착";
@@ -85,8 +85,8 @@ public class UIInventory : MonoBehaviour
 
         Character player = GameManager.Instance.Player;
 
-        // 소비 아이템 사용
-        if (selectedItem.ItemData.type == AbilityType.Health)
+        // 소비 아이템이면, 사용
+        if (selectedItem.ItemData.itemType == ItemType.Consumable)
         {
             player.Heal(selectedItem.ItemData.amount);
 
@@ -99,7 +99,7 @@ public class UIInventory : MonoBehaviour
             }
         }
 
-        // 장비 아이템 장착/해제
+        // 장비 아이템이면, 장착/해제
         else
         {
             if (selectedItem.IsEquipped)
