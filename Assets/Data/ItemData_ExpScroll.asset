@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ItemData_ExpScroll
   m_EditorClassIdentifier: 
   itemName: "\uACBD\uD5D8\uCE58 \uC2A4\uD06C\uB864"
-  itemDescription: "\uC0AC\uC6A9\uD558\uBA74 \uACBD\uD5D8\uCE58\uB97C \uC870 \uC5BB\uC744
-    \uC218 \uC788\uB2E4."
+  itemDescription: "\uC0AC\uC6A9\uD558\uBA74 \uACBD\uD5D8\uCE58\uB97C \uC870\uAE08
+    \uC5BB\uC744 \uC218 \uC788\uB2E4."
   itemIcon: {fileID: 21300000, guid: b6f8baa92468d5245b678bf1c2a784e8, type: 3}
   itemType: 0
   canStack: 1
