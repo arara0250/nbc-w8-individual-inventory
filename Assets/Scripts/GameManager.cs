@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
             new Item(ItemDB.GetItemData("초심자의 검")),
             new Item(ItemDB.GetItemData("HP 포션"), 3),
             new Item(ItemDB.GetItemData("나무 방패")),
-            new Item(ItemDB.GetItemData("바람의 신발"))
+            new Item(ItemDB.GetItemData("바람의 신발")),
+            new Item(ItemDB.GetItemData("경험치 스크롤"), 10)
         };
 
         Player = new Character
