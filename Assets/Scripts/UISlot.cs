@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,21 +8,42 @@ public class UISlot : MonoBehaviour
     [SerializeField] private Image itemIcon;
     [SerializeField] private TextMeshProUGUI equipText;
     [SerializeField] private Button slotButton;
-    
-    [SerializeField] private int slotIndex;
+
+    private int slotIndex;
+    private Item currentItem;
+
+    public event Action<Item> OnSlotClicked;
+
+    private void Start()
+    {
+        slotButton.onClick.AddListener(() => OnSlotClicked?.Invoke(currentItem));
+    }
 
     public void SetIndex(int index)
     {
         slotIndex = index;
     }
 
-    void SetItem()
+    public void SetItem(Item item)
     {
-
+        currentItem = item;
+        UpdateSlotUI();
     }
 
-    void RefreshUI()
+    void UpdateSlotUI()
     {
+        if (currentItem == null)
+        {
+            itemIcon.gameObject.SetActive(false);
+            equipText.gameObject.SetActive(false);
+        }
+        else
+        {
+            itemIcon.gameObject.SetActive(true);
+            itemIcon.sprite = currentItem.ItemData.itemIcon;
 
+            if (currentItem.IsEquipped)
+                equipText.gameObject.SetActive(true);
+        }
     }
 }
