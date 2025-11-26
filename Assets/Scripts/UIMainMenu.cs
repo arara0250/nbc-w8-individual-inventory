@@ -33,6 +33,7 @@ public class UIMainMenu : MonoBehaviour
     {
         statusButton.gameObject.SetActive(false);
         inventoryButton.gameObject.SetActive(false);
+        UIManager.Instance.UIStatus.SetStatusInfo(GameManager.Instance.Player);
         UIManager.Instance.UIStatus.gameObject.SetActive(true);
         UIManager.Instance.UIInventory.gameObject.SetActive(false);
     }
