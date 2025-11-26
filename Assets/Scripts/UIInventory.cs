@@ -33,4 +33,15 @@ public class UIInventory : MonoBehaviour
             slots.Add(slot);
         }
     }
+
+    public void RefreshInventoryUI(Character Player)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (i < Player.Inventory.Count)
+                slots[i].SetItem(Player.Inventory[i]);
+            else
+                slots[i].SetItem(null);
+        }
+    }
 }
