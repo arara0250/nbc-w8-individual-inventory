@@ -64,13 +64,13 @@ public class Character
         switch (item.ItemData.equipType)
         {
             case EquipmentType.Attack:
-                Attack += item.ItemData.amount;
+                Attack += item.ItemData.stat;
                 break;
             case EquipmentType.Defense:
-                Defense += item.ItemData.amount;
+                Defense += item.ItemData.stat;
                 break;
             case EquipmentType.Speed:
-                Speed += item.ItemData.amount;
+                Speed += item.ItemData.stat;
                 break;
         }
 
@@ -85,13 +85,13 @@ public class Character
         switch (item.ItemData.equipType)
         {
             case EquipmentType.Attack:
-                Attack -= item.ItemData.amount;
+                Attack -= item.ItemData.stat;
                 break;
             case EquipmentType.Defense:
-                Defense -= item.ItemData.amount;
+                Defense -= item.ItemData.stat;
                 break;
             case EquipmentType.Speed:
-                Speed -= item.ItemData.amount;
+                Speed -= item.ItemData.stat;
                 break;
         }
 

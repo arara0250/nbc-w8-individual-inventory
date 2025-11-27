@@ -44,13 +44,13 @@ public class UIStatus : MonoBehaviour
             switch (item.ItemData.equipType)
             {
                 case EquipmentType.Attack:
-                    attAddText.text = $"(+{item.ItemData.amount})";
+                    attAddText.text = $"(+{item.ItemData.stat})";
                     break;
                 case EquipmentType.Defense:
-                    defAddText.text = $"(+{item.ItemData.amount})";
+                    defAddText.text = $"(+{item.ItemData.stat})";
                     break;
                 case EquipmentType.Speed:
-                    spdAddText.text = $"(+{item.ItemData.amount})";
+                    spdAddText.text = $"(+{item.ItemData.stat})";
                     break;
                 default:
                     break;
