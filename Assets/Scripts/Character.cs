@@ -33,6 +33,7 @@ public class Character
 
     private void LevelUp()
     {
+        // 레벨업 경험치가 충족되지 않았는데, LevelUp() 함수가 호출되었을 때를 위함
         if (Experience < RequiredExp) return;
 
         Experience -= RequiredExp;
@@ -59,6 +60,7 @@ public class Character
 
     public void Equip(Item item)
     {
+        // ItemType 이 Consumable 인데 Equip() 함수가 호출되었을 때를 위함
         if (item.ItemData.itemType == ItemType.Consumable) return;
 
         switch (item.ItemData.equipType)
@@ -80,6 +82,7 @@ public class Character
 
     public void UnEquip(Item item)
     {
+        // 장착되지 않은 아이템인데, UnEquip() 함수가 호출되었을 때를 위함
         if (item.IsEquipped == false) return;
 
         switch (item.ItemData.equipType)

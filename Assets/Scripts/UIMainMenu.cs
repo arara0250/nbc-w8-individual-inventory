@@ -49,6 +49,7 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.UIInventory.gameObject.SetActive(true);
     }
 
+    // UIMainMenu 에서 보이는 캐릭터 정보 (ID, 골드, 레벨, 경험치) 만 세팅
     public void SetCharacterInfo(Character Player)
     {
         idText.text = Player.CharacterID;

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         ItemDB.Init();
 
+        // 기본으로 주어지는 아이템 (기능 구현 확인용)
         List<Item> initInven = new List<Item>() 
         { 
             new Item(ItemDB.GetItemData("초심자의 검")),

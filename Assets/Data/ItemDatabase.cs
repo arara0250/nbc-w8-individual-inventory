@@ -21,6 +21,7 @@ public class ItemDatabase : ScriptableObject
             itemDict[item.itemName] = item;
     }
 
+    // 아이템 이름 (string) 으로 itemDict 에서 검색
     public ItemData GetItemData(string itemName)
     {
         // null 방지

@@ -31,6 +31,7 @@ public class UISlot : MonoBehaviour
         UpdateSlotUI();
     }
 
+    // 아이템 슬롯 (본인) 에 저장된 아이템에 맞는 아이콘 및 텍스트를 표시하는 함수
     void UpdateSlotUI()
     {
         if (currentItem == null)
@@ -44,11 +45,13 @@ public class UISlot : MonoBehaviour
             itemIcon.gameObject.SetActive(true);
             itemIcon.sprite = currentItem.ItemData.itemIcon;
 
+            // 장착템 : 장착 표시
             if (currentItem.IsEquipped)
                 equipText.gameObject.SetActive(true);
             else
                 equipText.gameObject.SetActive(false);
 
+            // 소비템 : 개수 표시
             if (currentItem.ItemData.canStack && currentItem.Quantity > 0)
             {
                 quantityText.text = $"x{currentItem.Quantity}";

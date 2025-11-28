@@ -28,6 +28,7 @@ public class UIStatus : MonoBehaviour
 
     public void SetStatusInfo(Character Player)
     {
+        // 장착 아이템에 의한 status 수치 변화 표시 텍스트 초기화
         attAddText.text = "";
         defAddText.text = "";
         spdAddText.text = "";
@@ -37,8 +38,10 @@ public class UIStatus : MonoBehaviour
         defenseText.text = Player.Defense.ToString();
         speedText.text = Player.Speed.ToString();
 
+        // 장착한 아이템이 없다면, 그대로 return
         if (Player.EquippedItems.Count == 0) return;
 
+        // 장착 아이템에 의한 status 수치 변화 표시
         foreach (Item item in Player.EquippedItems)
         {
             switch (item.ItemData.equipType)

@@ -46,6 +46,7 @@ public class UIInventory : MonoBehaviour
         }
     }
 
+    // 플레이어 인벤토리에 따라 모든 아이템 슬롯을 갱신하는 함수
     public void RefreshInventoryUI(Character Player)
     {
         for (int i = 0; i < slots.Count; i++)
@@ -62,7 +63,7 @@ public class UIInventory : MonoBehaviour
 
     private void HandleSlotClicked(Item item)
     {
-        if (item == null)
+        if (item == null)   // 빈 슬롯을 클릭했을 때
         {
             itemNameText.text = "";
             itemDescText.text = "";
@@ -73,6 +74,7 @@ public class UIInventory : MonoBehaviour
         itemNameText.text = item.ItemData.itemName;
         itemDescText.text = item.ItemData.itemDescription;
 
+        // 클릭된 슬롯의 아이템 타입 또는 장착 상태에 따른 UseButton 텍스트 변화
         if (item.ItemData.itemType == ItemType.Consumable)
             useButtonText.text = "사용";
         else
